@@ -1,0 +1,245 @@
+# 📈 AI-Powered Stock Price Rise Prediction API
+
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-REST%20API-green)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
+An intelligent stock market prediction system that combines **technical indicators**, **financial news sentiment**, and **machine learning** to predict significant stock price increases.
+
+Unlike traditional stock prediction systems that only predict whether prices rise or fall, this application classifies stocks into multiple gain categories while addressing class imbalance using **SMOTE** and incorporating financial sentiment through **FinBERT**.
+
+---
+
+## ✨ Features
+
+* 📈 Multi-level stock price rise prediction
+* 📰 Financial news sentiment analysis
+* 🤖 FinBERT-based sentiment scoring
+* 🌲 Random Forest classification model
+* ⚖️ SMOTE for handling imbalanced datasets
+* 📊 Technical indicators:
+
+  * Moving Average (5 Days)
+  * Moving Average (10 Days)
+  * Relative Strength Index (RSI)
+  * MACD
+* 📡 Live stock analysis using Yahoo Finance
+* ⚡ REST API built with FastAPI
+* 📉 Prediction confidence scores
+* 📋 Feature importance analysis
+
+---
+
+## 🚀 Prediction Categories
+
+| Class | Description               |
+| ----- | ------------------------- |
+| 0     | No Significant Gain (≤1%) |
+| 1     | Moderate Gain (1–5%)      |
+| 2     | Good Gain (5–7%)          |
+| 3     | Strong Gain (>7%)         |
+
+---
+
+## 🏗️ System Architecture
+
+```text
+                Historical Stock Data
+                         │
+                         ▼
+              Technical Indicator Generation
+         (MA5, MA10, RSI, MACD, Returns)
+                         │
+                         ▼
+                Financial News Headlines
+                         │
+                         ▼
+                  FinBERT Sentiment
+                         │
+                         ▼
+              Feature Engineering
+                         │
+                         ▼
+                Dataset Balancing
+                     (SMOTE)
+                         │
+                         ▼
+              Random Forest Training
+                         │
+                         ▼
+               Prediction REST API
+                         │
+                         ▼
+                  Stock Prediction
+```
+
+---
+
+## 🛠️ Technology Stack
+
+### Backend
+
+* Python
+* FastAPI
+* Pydantic
+
+### Machine Learning
+
+* Scikit-learn
+* Random Forest Classifier
+* SMOTE
+* Pandas
+* NumPy
+
+### Natural Language Processing
+
+* Hugging Face Transformers
+* FinBERT
+* TextBlob
+
+### Financial Data
+
+* Yahoo Finance
+* RSS News Feeds
+
+---
+
+## 📂 Project Structure
+
+```text
+stock-price-rise-prediction/
+
+├── app/
+│   └── main.py
+│
+├── docs/
+│   ├── API_Documentation.md
+│   ├── Project_Report.pdf
+│   └── Final_Presentation.pdf
+│
+├── assets/
+│
+├── requirements.txt
+├── LICENSE
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 📊 Machine Learning Pipeline
+
+1. Collect historical stock prices.
+2. Collect financial news headlines.
+3. Compute technical indicators (MA5, MA10, RSI, MACD).
+4. Extract financial sentiment using FinBERT.
+5. Merge technical and sentiment features.
+6. Balance the dataset using SMOTE.
+7. Train the Random Forest classifier.
+8. Generate stock rise predictions through the FastAPI API.
+
+---
+
+## 🌐 API Endpoints
+
+| Method | Endpoint                | Description                         |
+| ------ | ----------------------- | ----------------------------------- |
+| GET    | `/`                     | Health Check                        |
+| POST   | `/api/train`            | Train the prediction model          |
+| POST   | `/api/predict`          | Predict stock rise category         |
+| GET    | `/api/status`           | Model status and feature importance |
+| GET    | `/api/analyze/{ticker}` | Analyze a live stock ticker         |
+
+---
+
+## 📈 Example Prediction Response
+
+```json
+{
+  "prediction": 2,
+  "label": "Good Gain (5–7%)",
+  "probabilities": {
+    "No significant gain (≤1%)": 0.06,
+    "Moderate gain (1–5%)": 0.19,
+    "Good gain (5–7%)": 0.67,
+    "Strong gain (>7%)": 0.08
+  }
+}
+```
+
+---
+
+## 🚀 Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/your-username/stock-price-rise-prediction.git
+cd stock-price-rise-prediction
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Application
+
+```bash
+uvicorn app.main:app --reload
+```
+
+The API will be available at:
+
+```
+http://127.0.0.1:8000
+```
+
+Interactive API documentation:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## 🔮 Future Improvements
+
+* Docker support
+* JWT Authentication
+* PostgreSQL integration
+* Model persistence
+* LSTM and Transformer-based prediction models
+* SHAP Explainability
+* Streamlit dashboard
+* Cloud deployment (AWS/Azure)
+
+---
+
+## ⚠️ Disclaimer
+
+This project is intended for educational and research purposes only. The predictions generated by the model should **not** be considered financial or investment advice.
+
+---
+
+## 🤝 Contributing
+
+Contributions, suggestions, and improvements are welcome. Feel free to fork the repository and submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Abhishek Rampalli**
+
+B.Tech in Computer Science (AI & Data Science)
+
+Developed as an AI-powered financial analytics project using FastAPI, FinBERT, technical indicators, and machine learning to predict multi-level stock price increases.
